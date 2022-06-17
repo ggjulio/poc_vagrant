@@ -45,8 +45,13 @@ mv kubectl ~/bin/
 - [multi machines](https://www.vagrantup.com/docs/multi-machine)
 - [config.vm.network](https://friendsofvagrant.github.io/v1/docs/config/vm/network.html)
 
+##### k8s ssh key add
+- []()
+- []()
+
 ##### k3s
+- [k3s doc](https://rancher.com/docs/k3s/latest/en/)
 - [k3s multinode install](https://projectcalico.docs.tigera.io/getting-started/kubernetes/k3s/multi-node-install)
 
 ##### k3d
-- [k]
+- [Create a Multi-Node Cluster with k3d](https://docs.rancherdesktop.io/how-to-guides/create-multi-node-cluster/)
