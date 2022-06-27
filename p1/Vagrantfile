@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/8"
   config.vm.box_version = "2011.0"
+  config.env.enable # load .env file into ENV
 
   config.vm.provider "virtualbox" do |vb|
     vb.cpus = 1
