@@ -1,11 +1,5 @@
 # poc_vagrant
 
-#### Vagrant with .env
-More about it [here](https://www.nickhammond.com/configuring-vagrant-virtual-machines-with-env/)
-```shell
-vagrant plugin install vagrant-env
-```
-
 ##### Running vagrant at 42.
 Vagrant and bsdtar are now installed by default on the linux dump.
 So only need to change vbox path for VMs to avoid flood home space usage.
@@ -59,7 +53,7 @@ mv kubectl ~/bin/
 - [k3s doc](https://rancher.com/docs/k3s/latest/en/)
 - [ks server configuration reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/server-config/)
 - [k3s multinode install](https://projectcalico.docs.tigera.io/getting-started/kubernetes/k3s/multi-node-install)
-- [ks multinode centos](https://www.golinuxcloud.com/kubernetes-add-node-to-existing-cluster/#Lab_Environment)
+- [k8s multinode centos](https://www.golinuxcloud.com/kubernetes-add-node-to-existing-cluster/#Lab_Environment)
 
 ##### k3d
 - [Create a Multi-Node Cluster with k3d](https://docs.rancherdesktop.io/how-to-guides/create-multi-node-cluster/)
