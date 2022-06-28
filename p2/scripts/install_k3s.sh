@@ -10,4 +10,3 @@ dnf -y update
 echo "Setting up kubectl completion..."
 # dnf install bash-completion
 echo 'source <(kubectl completion bash)' >>~/.bashrc
-

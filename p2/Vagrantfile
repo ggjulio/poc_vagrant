@@ -2,12 +2,28 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos/8"
   config.vm.box_version = "2011.0"
 
+  config.vm.provider "virtualbox" do |v|
+    v.cpus = 1
+    v.memory = 1024
+  end
+
+  config.vm.provision "shell",  path: "scripts/install_k3s.sh"
+
   config.vm.define "server" do |server|
-    server.vm.provider "virtualbox" do |v|
-      v.memory = 1024
-      v.cpus = 1
-    end
+    server.vm.hostname = "server"
+    server.vm.network "private_network", ip: "192.168.42.110"
+    server.vm.provision "shell",
+    env: {"MY_IP" => "192.168.42.110"},
+    inline:  <<-EOF
+    set -eux
     
+    echo "Installing master k3S..."
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--cluster-init --node-ip=${MY_IP} --no-deploy=traefik --write-kubeconfig-mode 644" sh -
+    echo "k3S master node installed."
+    
+    
+    EOF
+
   end
 
 end
