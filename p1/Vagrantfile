@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     master.vm.provision "shell",
       env: {"NODE_IP" => MASTER_IP, "WORKER_IP" => WORKER_IP, "WORKER_HOSTNAME" => WORKER_HOSTNAME, "TOKEN" => K3S_TOKEN},
       inline:  <<-EOF
-        set -eux
+        set -eu
         echo "$WORKER_IP $WORKER_HOSTNAME" >> /etc/hosts
         curl -sfL https://get.k3s.io \
           | INSTALL_K3S_EXEC="--cluster-init --node-ip=${NODE_IP} --token=${TOKEN} --no-deploy=traefik --write-kubeconfig-mode 644" sh -      
