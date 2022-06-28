@@ -8,6 +8,4 @@ sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /
 dnf -y update
 
 echo "Setting up kubectl completion..."
-# dnf install bash-completion
-echo 'source <(kubectl completion bash)' >>~/.bashrc
-
+/usr/local/bin/kubectl completion bash >> /etc/bash_completion.d/kubectl

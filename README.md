@@ -57,3 +57,6 @@ mv kubectl ~/bin/
 
 ##### k3d
 - [Create a Multi-Node Cluster with k3d](https://docs.rancherdesktop.io/how-to-guides/create-multi-node-cluster/)
+
+##### kubectl
+- [kubectl completion](https://linuxhint.com/enable-kubectl-bash-completion/)

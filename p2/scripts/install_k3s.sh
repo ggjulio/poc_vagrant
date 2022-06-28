@@ -1,16 +1,18 @@
 #!/bin/sh
 
-set -eux
-
-BOLD="\e[1m"
 RESET="\e[0m"
 LIGHT_RED="\e[91m"
 LIGHT_GREEN="\e[92m"
-LIGHT_CYAN="\e[96m"
+
+set -eu
 
 logging(){
 	local type=$1; shift
-	printf "${LIGHT_CYAN}${BOLD}Entrypoint${RESET} [%b] : %b\n" "$type" "$*"
+	printf "${RESET}[%b] $0 : %b\n" "$type" "$*"
+}
+
+log_info(){
+	logging "${LIGHT_GREEN}info${RESET}" "$@"
 }
 
 log_error(){
@@ -19,18 +21,17 @@ log_error(){
 }
 
 if [ -z "$NODE_IP" ]; then
-   log_error "No variable $NODE_IP specified."
+   log_error "No variable NODE_IP specified. Please specify it."
 fi
 
-echo "Setting up mirrors and dnf update..."
+log_info "Setting up mirrors and dnf update..."
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 dnf -y update
 
-echo "Installing server k3S with  ${NODE_IP}..."
+log_info "Installing server k3S with ${NODE_IP} as node ip..."
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--cluster-init --node-ip=${NODE_IP} --write-kubeconfig-mode 644" sh -
-echo "k3S master node installed."
+log_info "k3S server node installed."
 
-echo "Setting up kubectl completion..."
-# dnf install bash-completion
-echo 'source <(kubectl completion bash)' >>~/.bashrc
+log_info "Setting up kubectl completion..."
+/usr/local/bin/kubectl completion bash >> /etc/bash_completion.d/kubectl
