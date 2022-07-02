@@ -27,7 +27,7 @@ fi
 log_info "Setting up mirrors and dnf update..."
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
-dnf -y update
+# dnf -y update
 
 log_info "Installing server k3S with ${NODE_IP} as node ip..."
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--cluster-init --node-ip=${NODE_IP} --write-kubeconfig-mode 644" sh -
