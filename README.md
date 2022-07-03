@@ -57,6 +57,7 @@ mv kubectl ~/bin/
 - [ks server configuration reference](https://rancher.com/docs/k3s/latest/en/installation/install-options/server-config/)
 - [k3s multinode install](https://projectcalico.docs.tigera.io/getting-started/kubernetes/k3s/multi-node-install)
 - [k8s multinode centos](https://www.golinuxcloud.com/kubernetes-add-node-to-existing-cluster/#Lab_Environment)
+- [k3s node roles](https://rancher.com/docs/rancher/v2.5/en/cluster-provisioning/production/nodes-and-roles/)
 
 ##### k3d
 - [Create a Multi-Node Cluster with k3d](https://docs.rancherdesktop.io/how-to-guides/create-multi-node-cluster/)
