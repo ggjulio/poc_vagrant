@@ -30,13 +30,3 @@ log_info "k3S server node installed."
 
 log_info "Setting up kubectl completion..."
 /usr/local/bin/kubectl completion bash >> /etc/bash_completion.d/kubectl
-
-# log_info "Installing VBox guest additions."
-# wget http://download.virtualbox.org/virtualbox/6.1.34/VBoxGuestAdditions_6.1.34.iso
-# mkdir /media/VBoxGuestAdditions
-# mount -o loop,ro VBoxGuestAdditions_6.1.34.iso /media/VBoxGuestAdditions
-# sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run --nox11
-# rm VBoxGuestAdditions_6.1.34.iso
-# umount /media/VBoxGuestAdditions
-# rmdir /media/VBoxGuestAdditions
-# log_info "VBox guest additions installed."

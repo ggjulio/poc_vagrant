@@ -1,4 +1,5 @@
-IP_SERVER="192.168.42.110"
+SERVER_IP="192.168.42.110"
+SERVER_HOSTNAME="server"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/8"
@@ -11,10 +12,9 @@ Vagrant.configure("2") do |config|
     v.memory = 2048
   end
 
-  config.vm.define "server" do |server|
-    server.vm.hostname = "server"
-    server.vm.network "private_network", ip: IP_SERVER
-
+  config.vm.define SERVER_HOSTNAME do |server|
+    server.vm.hostname = SERVER_HOSTNAME
+    server.vm.network "private_network", ip: SERVER_IP
     server.vm.provision "shell",
       name: "Setting up mirrors and updating centos",
       inline:  <<-EOF
@@ -38,8 +38,7 @@ Vagrant.configure("2") do |config|
         rmdir /media/VBoxGuestAdditions
       EOF
     server.vm.provision :reload
-
-    server.vm.provision "shell",  path: "scripts/install_k3s.sh", env: {"NODE_IP" => IP_SERVER}
+    server.vm.provision "shell",  path: "scripts/install_k3s.sh", env: {"NODE_IP" => SERVER_IP}
     server.vm.synced_folder "./config", "/tt", type: "virtualbox"
 
   end
