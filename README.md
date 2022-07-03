@@ -66,8 +66,3 @@ mv kubectl ~/bin/
 ##### kubectl
 - [kubectl completion](https://linuxhint.com/enable-kubectl-bash-completion/)
 
-
-##### notes
-```shell
-vagrant plugin install vagrant-vbguest
-```
