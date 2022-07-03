@@ -49,6 +49,7 @@ mv kubectl ~/bin/
 - [nfs troubleshoot](https://github.com/hashicorp/vagrant/blob/80e94b5e4ed93a880130b815329fcbce57e4cfed/website/pages/docs/synced-folders/nfs.mdx#troubleshooting-nfs-issues)
 - https://www.tecmint.com/install-nfs-server-on-ubuntu/
 - https://discuss.hashicorp.com/t/run-a-block-pre-synced-folder-run/21957/3
+- https://www.reddit.com/r/CentOS/comments/nytwi4/all_centos_8_mirrors_are_half_broken_and_nobody/
 ##### vagrant pass token from one vm to another
 - [base](https://stackoverflow.com/questions/64486008/how-to-get-env-var-from-one-vm-and-pass-it-to-another-vm-in-vagrantfile)
 - [returning a value from a provision script to vagrant](https://stackoverflow.com/questions/21117246/returning-a-value-from-a-provision-script-to-vagrant)
