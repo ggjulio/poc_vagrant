@@ -4,6 +4,11 @@
 Vagrant and bsdtar are now installed by default on the linux dump.
 So only need to change vbox path for VMs to avoid flood home space usage.
 
+You can check current vbox machine folder:
+```
+VBoxManage list systemproperties | grep "Default machine folder:"
+``` 
+
 Choose either `tmp` or `goinfre` folder:
 ```shell
 vboxmanage setproperty machinefolder ~/goinfre
